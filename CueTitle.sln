@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CueTitle", "CueTitle\CueTitle.csproj", "{32D1C73D-1E46-472C-8F19-935AE88D1797}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{32D1C73D-1E46-472C-8F19-935AE88D1797}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32D1C73D-1E46-472C-8F19-935AE88D1797}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32D1C73D-1E46-472C-8F19-935AE88D1797}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32D1C73D-1E46-472C-8F19-935AE88D1797}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {294D0ED3-500A-46EC-B015-687F43E2511D}
+	EndGlobalSection
+EndGlobal
