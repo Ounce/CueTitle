@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,24 @@ namespace CueTitle
     /// </summary>
     public partial class MainWindow : Window
     {
+        private string FileName;
+        private Cue cue;
         public MainWindow()
         {
             InitializeComponent();
+            cue = new Cue();
+            listView.ItemsSource = cue.Items;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "CUE文件(*.cue)|*.cue";
+            if (dialog.ShowDialog() == true)
+            {
+                FileName = dialog.FileName;
+                cue.ReadFile(FileName);
+            }
         }
     }
 }

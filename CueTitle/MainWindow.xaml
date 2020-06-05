@@ -7,6 +7,19 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Button x:Name="button" Content="读取Cue文件" HorizontalAlignment="Left" Margin="213,53,0,0" VerticalAlignment="Top" Width="100" Click="Button_Click"/>
+        <Button x:Name="button1" Content="写入" HorizontalAlignment="Left" Margin="465,53,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="213,108,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="485"/>
+        <Label x:Name="label" Content="Label" HorizontalAlignment="Left" Margin="124,108,0,0" VerticalAlignment="Top" Width="84"/>
+        <ListView x:Name="listView" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="222" Margin="91,174,0,0" VerticalAlignment="Top" Width="314">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="音轨号" DisplayMemberBinding="{Binding Path=id}" Width="60"/>
+                    <GridViewColumn Header="标题" DisplayMemberBinding="{Binding Path=Title}" Width="240"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="222" Margin="455,174,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="254" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"/>
+
     </Grid>
 </Window>
