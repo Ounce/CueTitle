@@ -40,6 +40,18 @@ namespace CueTitle
             {
                 FileName = dialog.FileName;
                 cue.ReadFile(FileName);
+                newTitles.Clear();
+                foreach (var c in cue.Items)
+                {
+                    newTitles.Add(c.Title);
+                }
+                if (textBox1 == null) return;
+                string fstring = "";
+                foreach (string line in newTitles)
+                {
+                    fstring = fstring + line + "\n";
+                }
+                textBox1.Text = fstring;
             }
         }
 
