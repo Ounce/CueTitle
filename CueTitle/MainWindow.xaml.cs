@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,7 @@ namespace CueTitle
             InitializeComponent();
             cue = new Cue();
             listView.ItemsSource = cue.Items;
+            textBox2.IsReadOnly = true;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -52,6 +54,51 @@ namespace CueTitle
                     fstring = fstring + line + "\n";
                 }
                 textBox1.Text = fstring;
+            }
+        }
+
+        private void Button1_Click(object sender, RoutedEventArgs e)
+        {
+            if (FileName == null)
+                return;
+            string line;
+            string l;
+            int i = 0;
+            int length;
+            SaveFileDialog writeDialog = new SaveFileDialog();
+            writeDialog.Filter = "CUE文件(*.cue)|*.cue";
+            if (writeDialog.ShowDialog() == true)
+            {
+                if (System.IO.File.Exists(writeDialog.FileName))
+                {
+                    System.IO.File.Delete(writeDialog.FileName);
+                }
+                FileStream aFile = new FileStream(writeDialog.FileName, FileMode.CreateNew);
+                StreamWriter file = new StreamWriter(aFile);
+                //System.IO.StreamWriter file = new System.IO.StreamWriter(writeDialog.FileName,false);
+                StreamReader sr = new StreamReader(FileName, Encoding.Default);
+                while ((line = sr.ReadLine()) != null)
+                {
+                    l = line.Trim();
+                    if (l.Substring(0, 5).ToUpper() == "TITLE")
+                    {
+                        if (i > 0)
+                        {
+                            length = line.Length - l.Length;
+                            file.WriteLine(line.Substring(0, length + 6) + '\"' + newTitles[i - 1] + '\"');
+                        }
+                        else
+                            file.WriteLine(line);
+                        i++;
+                    }
+                    else
+                    {
+                        file.WriteLine(line);
+                    }
+
+                }
+                file.Close();
+                MessageBox.Show("完成！");
             }
         }
 
@@ -141,5 +188,6 @@ namespace CueTitle
             }
             textBox2.Text = fstring;
         }
+
     }
 }
