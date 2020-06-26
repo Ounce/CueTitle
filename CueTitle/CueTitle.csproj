@@ -91,6 +91,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="荷东 - 第一集%28CUE%29.cue" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

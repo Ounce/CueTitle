@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CueTitle"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="1299">
     <Grid>
         <Button x:Name="button" Content="读取Cue文件" HorizontalAlignment="Left" Margin="213,53,0,0" VerticalAlignment="Top" Width="100" Click="Button_Click"/>
         <Button x:Name="button1" Content="写入" HorizontalAlignment="Left" Margin="465,53,0,0" VerticalAlignment="Top" Width="75"/>
@@ -19,7 +19,9 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="222" Margin="455,174,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="254" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"/>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="222" Margin="455,174,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="254" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" TextChanged="TextBox1_TextChanged"/>
+        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="222" Margin="755,174,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="254" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"/>
+        <CheckBox x:Name="numberCheckBox" Content="添加编号。" HorizontalAlignment="Left" Margin="755,131,0,0" VerticalAlignment="Top" Checked="NumberCheckBox_Checked" Click="NumberCheckBox_Click"/>
 
     </Grid>
 </Window>
