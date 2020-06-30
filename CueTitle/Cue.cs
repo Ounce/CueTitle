@@ -65,33 +65,38 @@ namespace CueTitle
             while ((line = sr.ReadLine()) != null)
             {
                 l = line.Trim();
-                if (l.Substring(0, 5).ToUpper() == "TRACK")
-                {
-                    track = true;
-                    t = new Track();
-                    continue;
-                }
                 if (track)
                 {
                     if (l.Substring(0, 9).ToUpper() == "PERFORMER")
                         t.Performer = l.Substring(11, l.Length - 12).Trim();
                     if (l.Substring(0, 5).ToUpper() == "TITLE")
-                        t.Title = l.Substring(7, l.Length - 8).Trim();
-                    if (l.Substring(0, 5).ToUpper() == "INDEX")
                     {
+                        t.Title = l.Substring(7, l.Length - 8).Trim();
                         t.id = i++;
                         Items.Add(t);
                         t = new Track();
                     }
-                    continue;
+                    if (l.Substring(0, 5).ToUpper() == "INDEX")
+                    {
+                    }
                 }
-                if (l.Substring(0, 9).ToUpper() == "PERFORMER")
-                    Performer = l.Substring(11, l.Length - 12).Trim();
-                if (l.Substring(0, 5).ToUpper() == "TITLE")
-                    Title = l.Substring(7, l.Length - 8).Trim();
-                if (l.Substring(0, 4).ToUpper() == "FILE")
-                    this.FileName = l.Substring(6, l.Length - 12);
+                else
+                {
+                    if (l.Substring(0, 5).ToUpper() == "TRACK")
+                    {
+                        track = true;
+                        //                    t = new Track();
+                        continue;
+                    }
+                    if (l.Substring(0, 9).ToUpper() == "PERFORMER")
+                        Performer = l.Substring(11, l.Length - 12).Trim();
+                    if (l.Substring(0, 5).ToUpper() == "TITLE")
+                        Title = l.Substring(7, l.Length - 8).Trim();
+                    if (l.Substring(0, 4).ToUpper() == "FILE")
+                        this.FileName = l.Substring(6, l.Length - 12);
+                }
             }
+            sr.Close();
         }
     }
 }
