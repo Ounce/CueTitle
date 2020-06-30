@@ -47,10 +47,12 @@ namespace CueTitle
         public string Performer { get; set; }
 
         public ObservableCollection<Track> Items;
+        public List<string> lines;
 
         public Cue()
         {
             Items = new ObservableCollection<Track>();
+            lines = new List<string>();
         }
 
         public void ReadFile(string fileName)
@@ -60,10 +62,12 @@ namespace CueTitle
             string l;
             bool track = false;
             Items.Clear();
+            lines.Clear();
             Track t = new Track();
             int i = 1;
             while ((line = sr.ReadLine()) != null)
             {
+                lines.Add(line);
                 l = line.Trim();
                 if (track)
                 {

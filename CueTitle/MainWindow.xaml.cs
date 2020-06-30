@@ -59,9 +59,12 @@ namespace CueTitle
 
         private void Button1_Click(object sender, RoutedEventArgs e)
         {
-            if (FileName == null)
+            if (cue.lines.Count == 0)
+            {
+                MessageBox.Show("原文件数据错误！");
                 return;
-            string line;
+            }
+            //string line;
             string l;
             int i = 0;
             int length;
@@ -76,8 +79,8 @@ namespace CueTitle
                 FileStream aFile = new FileStream(writeDialog.FileName, FileMode.CreateNew);
                 StreamWriter file = new StreamWriter(aFile);
                 //System.IO.StreamWriter file = new System.IO.StreamWriter(writeDialog.FileName,false);
-                StreamReader sr = new StreamReader(FileName, Encoding.Default);
-                while ((line = sr.ReadLine()) != null)
+                //StreamReader sr = new StreamReader(FileName, Encoding.Default);
+                foreach (string line in cue.lines)
                 {
                     l = line.Trim();
                     if (l.Substring(0, 5).ToUpper() == "TITLE")
