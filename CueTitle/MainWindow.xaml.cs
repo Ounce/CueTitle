@@ -77,7 +77,7 @@ namespace CueTitle
                     System.IO.File.Delete(writeDialog.FileName);
                 }
                 FileStream aFile = new FileStream(writeDialog.FileName, FileMode.CreateNew);
-                StreamWriter file = new StreamWriter(aFile);
+                StreamWriter file = new StreamWriter(aFile, Encoding.UTF8);
                 //System.IO.StreamWriter file = new System.IO.StreamWriter(writeDialog.FileName,false);
                 //StreamReader sr = new StreamReader(FileName, Encoding.Default);
                 foreach (string line in cue.lines)
@@ -88,7 +88,7 @@ namespace CueTitle
                         if (i > 0)
                         {
                             length = line.Length - l.Length;
-                            file.WriteLine(line.Substring(0, length + 6) + '\"' + newTitles[i - 1] + '\"');
+                            file.WriteLine(line.Substring(0, length + 6) + '\"' + newTitles[i - 1] + '\"', Encoding.UTF8);
                         }
                         else
                             file.WriteLine(line);
